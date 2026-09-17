@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class Main {
     public static void main(String[] args) {
         try {
@@ -28,11 +31,46 @@ public class Main {
         }
         checkAge(25);
     }
+
+    public static void runStreams() {
+        List<Integer> numbers = List.of(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        List<Integer> result1 = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toList());
+        System.out.println(result1);
+
+        List<Integer> result2 = numbers.stream()
+                .map(n -> n * 2)
+                .collect(Collectors.toList());
+        System.out.println(result2);
+
+        List<Integer> result3 = numbers.stream()
+                .filter(n -> n % 2 == 0)
+                .map(n -> n * 10)
+                .collect(Collectors.toList());
+        System.out.println(result3);
+
+        List<String> names = List.of("Саня","Саша","Санёк","Саня","Петя");
+        List<String> result4 = names.stream()
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+        System.out.println(result4);
+
+        long result5 = numbers.stream()
+                .filter(n -> n > 5)
+                .count();
+        System.out.println(result5);
+
+        names.forEach(System.out::println);
+    }
+
     public static void checkAge(int age) {
         if (age < 0) {
             throw new IllegalArgumentException("Возраст не может быть отрицательным!");
         } else {
             System.out.println("Возраст: " + age);
         }
+        runStreams();
     }
 }
