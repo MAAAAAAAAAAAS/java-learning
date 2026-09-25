@@ -2,9 +2,8 @@ package org.example;
 
 import java.util.Scanner;
 import java.util.LinkedHashSet;
-import java.util.Set;
 
-public class Zadachi2 {
+public class Zadacha1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String string1 = scanner.nextLine();
